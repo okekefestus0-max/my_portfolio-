@@ -180,6 +180,171 @@
         color: var(--muted);
         font-size: 14px;
       }
+      /* ---- hero: intro copy + profile card ---- */
+      .hero-grid {
+        display: grid;
+        grid-template-columns: minmax(0, 1.4fr) minmax(0, 0.6fr);
+        gap: 46px;
+        align-items: center;
+      }
+      .profile-card {
+        position: relative;
+        padding: 28px 24px 26px;
+        border: 1px solid #2b4059;
+        border-radius: 20px;
+        background: linear-gradient(
+          160deg,
+          #182741 0%,
+          #111c2e 58%,
+          #0d1626 100%
+        );
+        box-shadow: 0 28px 60px -34px #000;
+        text-align: center;
+      }
+      .avatar {
+        display: block;
+        width: 152px;
+        height: 152px;
+        margin: 0 auto 16px;
+        border-radius: 50%;
+        object-fit: cover;
+        filter: drop-shadow(0 0 22px #67e8c533);
+      }
+      .profile-name {
+        margin: 0;
+        font-size: 21px;
+        font-weight: 800;
+        color: var(--ink);
+      }
+      .profile-role {
+        margin: 7px 0 0;
+        font-size: 13.5px;
+        font-weight: 650;
+        color: var(--accent);
+      }
+      .facts {
+        margin: 20px 0 0;
+        padding: 20px 0 0;
+        border-top: 1px solid #26364b;
+        list-style: none;
+        display: grid;
+        gap: 11px;
+        text-align: left;
+      }
+      .facts li {
+        display: grid;
+        grid-template-columns: 62px minmax(0, 1fr);
+        gap: 10px;
+        font-size: 13.5px;
+        color: var(--muted);
+      }
+      .facts b {
+        padding-top: 2px;
+        font-size: 10.5px;
+        font-weight: 800;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: #7f93ad;
+      }
+      .facts a {
+        text-decoration: none;
+        word-break: break-word;
+      }
+      .facts a:hover {
+        text-decoration: underline;
+      }
+      .status {
+        display: inline-flex;
+        align-items: center;
+        gap: 9px;
+        margin-top: 20px;
+        padding: 8px 14px;
+        border: 1px solid #2f6b58;
+        border-radius: 99px;
+        background: #0e2622;
+        color: #9df0d6;
+        font-size: 12.5px;
+        font-weight: 700;
+      }
+      .status i {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: #67e8c5;
+        box-shadow: 0 0 0 4px #67e8c524;
+      }
+      /* ---- selected work ---- */
+      .work-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 20px;
+      }
+      .work-card {
+        display: flex;
+        flex-direction: column;
+        gap: 13px;
+        padding: 26px;
+        border: 1px solid #2b4059;
+        border-radius: 16px;
+        background: var(--panel);
+        transition:
+          transform 0.18s ease,
+          border-color 0.18s ease,
+          box-shadow 0.18s ease;
+      }
+      .work-card:hover {
+        transform: translateY(-4px);
+        border-color: #3f7a80;
+        box-shadow: 0 22px 44px -28px #000;
+      }
+      .work-top {
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+        gap: 12px;
+      }
+      .work-kind {
+        font-size: 11px;
+        font-weight: 800;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: var(--accent);
+      }
+      .work-when {
+        font-size: 12.5px;
+        color: #7f93ad;
+        white-space: nowrap;
+      }
+      .work-card h3 {
+        margin: 0;
+        font-size: 20px;
+        line-height: 1.32;
+      }
+      .work-card > p {
+        margin: 0;
+      }
+      .work-card ul {
+        margin: 0;
+        padding-left: 20px;
+        display: grid;
+        gap: 8px;
+      }
+      .work-card ul li {
+        font-size: 14.5px;
+      }
+      .work-card .tags {
+        margin-top: auto;
+        padding-top: 8px;
+      }
+      .note {
+        margin-top: 22px;
+        padding: 14px 18px;
+        border-left: 3px solid #2f6b58;
+        border-radius: 0 10px 10px 0;
+        background: #101d2c;
+        font-size: 13.5px;
+        color: var(--muted);
+      }
       @media (max-width: 680px) {
         nav {
           align-items: flex-start;
@@ -193,6 +358,17 @@
           margin-left: 9px;
         }
         .grid {
+          grid-template-columns: 1fr;
+        }
+        .hero-grid {
+          grid-template-columns: 1fr;
+          gap: 34px;
+        }
+        .profile-card {
+          max-width: 420px;
+          margin: 0 auto;
+        }
+        .work-grid {
           grid-template-columns: 1fr;
         }
         .hero {
@@ -209,6 +385,7 @@
         "@type": "Person",
         "name": "Ikechukwu Festus Okeke",
         "jobTitle": "Computer Engineering Graduate · Cybersecurity Trainee",
+        "description": "Computer build and repair, offensive and defensive security lab work, data analysis, and social media content and campaigns for a small business.",
         "email": "mailto:okekefestus0@gmail.com",
         "telephone": "+2348062559689",
         "address": {
@@ -244,34 +421,154 @@
           >
           <div class="links">
             <a href="#about">About</a><a href="#skills">Skills</a
-            ><a href="#experience">Experience</a><a href="#contact">Contact</a>
+            ><a href="#work">Work</a><a href="#experience">Experience</a
+            ><a href="#contact">Contact</a>
           </div>
         </nav>
       </div>
     </header>
     <main>
       <div class="hero">
-        <div class="wrap">
-          <div class="eyebrow">
-            Computer Engineering · Cybersecurity · Digital Marketing
+        <div class="wrap hero-grid">
+          <div class="hero-copy">
+            <div class="eyebrow">
+              Computer Engineering · Cybersecurity · Digital Marketing
+            </div>
+            <h1>Hi, I'm Ikechukwu Festus Okeke.</h1>
+            <p class="lead">
+              I'm a Computer Engineering graduate whose work runs from the
+              hardware bench to the security lab to a business's social pages. I
+              build and repair computer systems, I'm training to protect them,
+              and I help organisations communicate clearly online. I enjoy
+              learning how systems work, how to defend them and how technology
+              helps people and businesses grow.
+            </p>
+            <div class="actions">
+              <a class="btn" href="mailto:okekefestus0@gmail.com"
+                >Get in touch</a
+              >
+              <a class="btn alt" href="#work">See my work</a>
+              <a
+                class="btn alt"
+                href="https://www.linkedin.com/in/ikechukwu105/"
+                target="_blank"
+                rel="noopener"
+                >View LinkedIn</a
+              >
+            </div>
           </div>
-          <h1>Hi, I'm Ikechukwu Festus Okeke.</h1>
-          <p class="lead">
-            I'm a Computer Engineering graduate building my career at the
-            intersection of cybersecurity, technology support and digital
-            communication. I enjoy learning how systems work, how to protect
-            them and how technology helps people and businesses grow.
-          </p>
-          <div class="actions">
-            <a class="btn" href="mailto:okekefestus0@gmail.com">Get in touch</a
-            ><a
-              class="btn alt"
-              href="https://www.linkedin.com/in/ikechukwu105/"
-              target="_blank"
-              rel="noopener"
-              >View LinkedIn</a
+          <!-- Photo slot: when you have a headshot, replace the <svg> below with
+               <img class="avatar" src="assets/profile.jpg" alt="Ikechukwu Festus Okeke" width="152" height="152"> -->
+          <aside class="profile-card">
+            <svg
+              class="avatar"
+              viewBox="0 0 200 200"
+              role="img"
+              aria-label="IFO monogram"
             >
-          </div>
+              <defs>
+                <radialGradient id="av-bg" cx="32%" cy="22%" r="86%">
+                  <stop offset="0%" stop-color="#1f3d63" />
+                  <stop offset="55%" stop-color="#132136" />
+                  <stop offset="100%" stop-color="#0a1220" />
+                </radialGradient>
+                <linearGradient id="av-ring" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0%" stop-color="#67e8c5" />
+                  <stop offset="52%" stop-color="#4aa8d8" />
+                  <stop offset="100%" stop-color="#22456e" />
+                </linearGradient>
+                <linearGradient id="av-ink" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0%" stop-color="#d6fff3" />
+                  <stop offset="48%" stop-color="#67e8c5" />
+                  <stop offset="100%" stop-color="#4bb8e0" />
+                </linearGradient>
+              </defs>
+              <circle cx="100" cy="100" r="97" fill="url(#av-bg)" />
+              <circle
+                cx="100"
+                cy="100"
+                r="97"
+                fill="none"
+                stroke="url(#av-ring)"
+                stroke-width="3"
+              />
+              <circle
+                cx="100"
+                cy="100"
+                r="85"
+                fill="none"
+                stroke="#33566f"
+                stroke-width="1"
+                stroke-dasharray="3 8"
+              />
+              <g
+                stroke="#67e8c5"
+                stroke-opacity="0.32"
+                stroke-width="2"
+                fill="none"
+              >
+                <path d="M16 132h24l13-13h21" />
+                <path d="M184 70h-23l-12 12h-19" />
+                <path d="M100 6v14M100 180v14" stroke-opacity="0.22" />
+              </g>
+              <g fill="#67e8c5" fill-opacity="0.55">
+                <circle cx="74" cy="119" r="3.6" />
+                <circle cx="130" cy="82" r="3.6" />
+                <circle cx="100" cy="20" r="2.6" />
+              </g>
+              <text
+                x="100"
+                y="123"
+                text-anchor="middle"
+                font-family="system-ui, -apple-system, Segoe UI, sans-serif"
+                font-size="58"
+                font-weight="800"
+                letter-spacing="2"
+                fill="url(#av-ink)"
+              >
+                IFO
+              </text>
+            </svg>
+            <p class="profile-name">Ikechukwu Festus Okeke</p>
+            <p class="profile-role">
+              Computer Engineering Graduate · Cybersecurity Trainee
+            </p>
+            <ul class="facts">
+              <li>
+                <b>Focus</b> <span>Security · IT support · Marketing</span>
+              </li>
+              <li><b>Based</b> <span>Enugu State, Nigeria</span></li>
+              <li>
+                <b>Studied</b> <span>HND Computer Engineering, GPA 3.65</span>
+              </li>
+              <li>
+                <b>Email</b>
+                <span
+                  ><a href="mailto:okekefestus0@gmail.com"
+                    >okekefestus0@gmail.com</a
+                  ></span
+                >
+              </li>
+              <li>
+                <b>Phone</b>
+                <span><a href="tel:+2348062559689">+234 806 255 9689</a></span>
+              </li>
+              <li>
+                <b>Online</b>
+                <span
+                  ><a
+                    href="https://www.linkedin.com/in/ikechukwu105/"
+                    target="_blank"
+                    rel="noopener"
+                    >LinkedIn profile</a
+                  ></span
+                >
+              </li>
+            </ul>
+            <div class="status">
+              <i></i>Open to internships &amp; entry-level roles
+            </div>
+          </aside>
         </div>
       </div>
       <section id="about">
@@ -354,6 +651,253 @@
               </div>
             </div>
           </div>
+        </div>
+      </section>
+      <section id="work">
+        <div class="wrap">
+          <div class="eyebrow">Selected work</div>
+          <h2>Things I have worked on</h2>
+          <p>
+            The practical work behind those skills — the hardware bench, the
+            security lab, coursework, data and a business's social pages —
+            roughly in the order I moved through them.
+          </p>
+          <div class="work-grid">
+            <article class="work-card">
+              <div class="work-top">
+                <span class="work-kind">Computer Engineering</span>
+                <span class="work-when">Ongoing</span>
+              </div>
+              <h3>Computer build, repair and system support</h3>
+              <p>
+                Hands-on work assembling, diagnosing, repairing and configuring
+                computers for individuals and small offices.
+              </p>
+              <ul>
+                <li>
+                  Diagnosed and repaired hardware faults — power supply, RAM,
+                  storage, cooling and peripheral failures — down to component
+                  replacement, then re-tested before handover.
+                </li>
+                <li>
+                  Built and upgraded desktops and laptops: compatibility
+                  checking, assembly, cable management and BIOS/UEFI setup.
+                </li>
+                <li>
+                  Installed and configured Windows and Linux — drivers,
+                  essential software, updates and user accounts — and migrated
+                  data with a backup routine in place.
+                </li>
+                <li>
+                  Cleaned malware-infected systems, recovered files where
+                  possible and left users with practical safe-use guidance.
+                </li>
+                <li>
+                  Set up printers, scanners and monitors, plus basic wired and
+                  Wi-Fi connectivity for homes and small offices.
+                </li>
+              </ul>
+              <div class="tags">
+                <span class="tag">Hardware diagnostics</span
+                ><span class="tag">System assembly</span
+                ><span class="tag">Windows</span><span class="tag">Linux</span
+                ><span class="tag">Data backup</span>
+              </div>
+            </article>
+            <article class="work-card">
+              <div class="work-top">
+                <span class="work-kind">Cybersecurity</span>
+                <span class="work-when">In progress</span>
+              </div>
+              <h3>Offensive and defensive security lab work</h3>
+              <p>
+                Practical exercises at Tech4Youth Advanced ICT Training, Enugu,
+                covering the attack lifecycle and blue-team operations.
+              </p>
+              <ul>
+                <li>
+                  Built Kali Linux lab environments and enumerated hosts, open
+                  ports and services with Nmap to map an attack surface.
+                </li>
+                <li>
+                  Captured and analysed network traffic in Wireshark — spotting
+                  reconnaissance, cleartext credentials and anomalous sessions.
+                </li>
+                <li>
+                  Exploited deliberately vulnerable lab machines with
+                  Metasploit, then documented the attack path, the impact and
+                  the fix.
+                </li>
+                <li>
+                  Ran vulnerability assessments end to end: scanning,
+                  validation, risk ranking and a written report with remediation
+                  steps.
+                </li>
+                <li>
+                  Practised digital forensics basics — evidence handling, disk
+                  imaging, artefact and log review to rebuild an incident
+                  timeline.
+                </li>
+                <li>
+                  Worked through SOC operations: alert triage, SIEM monitoring,
+                  escalation and incident response procedure.
+                </li>
+              </ul>
+              <div class="tags">
+                <span class="tag">Kali Linux</span><span class="tag">Nmap</span
+                ><span class="tag">Wireshark</span
+                ><span class="tag">Metasploit</span
+                ><span class="tag">Vulnerability assessment</span
+                ><span class="tag">Digital forensics</span
+                ><span class="tag">SOC</span>
+              </div>
+            </article>
+            <article class="work-card">
+              <div class="work-top">
+                <span class="work-kind">Social Media Marketing</span>
+                <span class="work-when">Ongoing</span>
+              </div>
+              <h3>Content and campaigns for a small business</h3>
+              <p>
+                Running the social presence for a small business — planning,
+                producing and publishing content, then turning attention into
+                enquiries.
+              </p>
+              <ul>
+                <li>
+                  Planned a content calendar around products, promotions and
+                  seasonal moments so posting stayed consistent instead of
+                  sporadic.
+                </li>
+                <li>
+                  Designed posts, flyers and short visuals, wrote captions and
+                  hashtag sets, and kept brand voice, colours and timing
+                  consistent across platforms.
+                </li>
+                <li>
+                  Handled comments and direct messages, answered product
+                  enquiries and moved conversations towards a sale or booking.
+                </li>
+                <li>
+                  Supported promotions and giveaways, and reviewed reach,
+                  engagement and follower growth to decide what to post next.
+                </li>
+              </ul>
+              <div class="tags">
+                <span class="tag">Content planning</span
+                ><span class="tag">Copywriting</span
+                ><span class="tag">Canva</span
+                ><span class="tag">Facebook &amp; Instagram</span
+                ><span class="tag">WhatsApp Business</span
+                ><span class="tag">Community management</span>
+              </div>
+            </article>
+            <article class="work-card">
+              <div class="work-top">
+                <span class="work-kind">Cybersecurity</span>
+                <span class="work-when">2023</span>
+              </div>
+              <h3>Security fundamentals coursework</h3>
+              <p>
+                Structured training that gave the lab work above its vocabulary
+                and its defensive side.
+              </p>
+              <ul>
+                <li>
+                  Introduction to Cybersecurity — Cisco (2023): threat actors
+                  and attack types, malware families, network security basics
+                  and how organisations defend themselves.
+                </li>
+                <li>
+                  Cyber Security and Personal Safety — La Plage Metaverse
+                  (2023): safe online behaviour, account protection, phishing
+                  and social engineering awareness.
+                </li>
+                <li>
+                  Put the fundamentals straight into practice in the lab, and
+                  into advising people around me on device and account safety.
+                </li>
+              </ul>
+              <div class="tags">
+                <span class="tag">Cisco Networking Academy</span
+                ><span class="tag">Threat awareness</span
+                ><span class="tag">Phishing &amp; social engineering</span>
+              </div>
+            </article>
+            <article class="work-card">
+              <div class="work-top">
+                <span class="work-kind">Data</span>
+                <span class="work-when">2023</span>
+              </div>
+              <h3>Data analysis training and reporting</h3>
+              <p>
+                NITDA and Coursera Data Analysis (2023) — turning raw records
+                into something a person can act on.
+              </p>
+              <ul>
+                <li>
+                  Collected, cleaned and organised messy data into a usable
+                  structure, checking for gaps, duplicates and wrong types.
+                </li>
+                <li>
+                  Built summaries, charts and simple dashboards in spreadsheets
+                  that answered a question rather than just displaying numbers.
+                </li>
+                <li>
+                  Wrote short reports from the results — the same habit I now
+                  use for security findings and social media performance.
+                </li>
+              </ul>
+              <div class="tags">
+                <span class="tag">Data cleaning</span
+                ><span class="tag">Spreadsheets</span
+                ><span class="tag">Charts &amp; dashboards</span
+                ><span class="tag">Reporting</span>
+              </div>
+            </article>
+            <article class="work-card">
+              <div class="work-top">
+                <span class="work-kind">Web</span>
+                <span class="work-when">2026</span>
+              </div>
+              <h3>This portfolio — hand-coded, not templated</h3>
+              <p>
+                Evidence for the HTML and CSS on my skills list: I built and
+                published this site myself.
+              </p>
+              <ul>
+                <li>
+                  Written in semantic HTML and CSS from scratch — no template,
+                  no page builder, no JavaScript framework.
+                </li>
+                <li>
+                  Responsive layout with a mobile breakpoint, sticky navigation
+                  and smooth in-page scrolling.
+                </li>
+                <li>
+                  Colour, spacing and typography driven by CSS custom
+                  properties, so the whole theme changes from one block.
+                </li>
+                <li>
+                  SEO and sharing metadata — canonical URL, Open Graph, Twitter
+                  card and Person JSON-LD — served from GitHub Pages.
+                </li>
+              </ul>
+              <div class="tags">
+                <span class="tag">HTML</span><span class="tag">CSS</span
+                ><span class="tag">Responsive design</span
+                ><span class="tag">SEO &amp; Open Graph</span
+                ><span class="tag">GitHub Pages</span>
+              </div>
+            </article>
+          </div>
+          <p class="note">
+            The cybersecurity items above are training and lab exercises from
+            Tech4Youth Advanced ICT Training, Enugu — supervised practice on
+            deliberately vulnerable systems, not client engagements. I hold the
+            certificates listed under Education and no other professional
+            security certification yet.
+          </p>
         </div>
       </section>
       <section id="experience">
@@ -440,9 +984,10 @@
     </main>
     <footer>
       <div class="wrap">
-        © 2026 Ikechukwu Festus Okeke · Portfolio. Training topics are in
-        progress; no professional security certifications or projects are
-        implied beyond those listed.
+        © 2026 Ikechukwu Festus Okeke · Portfolio. Cybersecurity work listed
+        here is training and lab practice at Tech4Youth Advanced ICT Training,
+        Enugu; no professional security certification or client engagement is
+        implied beyond what is stated.
       </div>
     </footer>
   </body>

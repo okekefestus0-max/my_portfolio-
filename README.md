@@ -20,10 +20,15 @@ build step, no dependencies, no JavaScript frameworks.
 
 ## Sections
 
-- **Hero** — intro and call-to-action links (email, LinkedIn)
+- **Hero** — intro, call-to-action buttons, and a profile card with the IFO
+  monogram, quick facts (focus, location, GPA, email, phone, LinkedIn) and an
+  "open to opportunities" status pill
 - **About** — background, education and current focus
 - **Skills** — cybersecurity training, computer engineering/ICT, digital
   marketing interests, digital and web tools
+- **Work** — six project cards with the practical evidence: computer build and
+  repair, security lab work, social media content and campaigns, security
+  coursework, data analysis, and this site
 - **Experience** — NYSC Financial Inclusion CDS presidency, class representative
 - **Education** — HND, Tech4Youth training, certificates
 - **Contact** — email, LinkedIn, phone and location
@@ -65,6 +70,29 @@ is defined once as CSS variables:
 ```
 
 Change a value there and the whole site updates.
+
+### Swapping the monogram for your photo
+
+The hero currently shows an "IFO" monogram drawn as inline SVG. To use a real
+headshot instead:
+
+1. Put the image in the repo, for example `assets/profile.jpg`. A square crop of
+   at least 400 × 400 px works best.
+2. In `index.html`, find the comment `<!-- Photo slot:` inside the hero and
+   replace the whole `<svg class="avatar">…</svg>` block with:
+
+   ```html
+   <img
+     class="avatar"
+     src="assets/profile.jpg"
+     alt="Ikechukwu Festus Okeke"
+     width="152"
+     height="152"
+   />
+   ```
+
+The `.avatar` rule already sets the circular crop, size and glow, so nothing else
+needs to change.
 
 ## Custom domain (optional)
 
