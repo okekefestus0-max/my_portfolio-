@@ -11,6 +11,7 @@ build step, no dependencies, no JavaScript frameworks.
 | File                             | Purpose                                                     |
 | -------------------------------- | ----------------------------------------------------------- |
 | `index.html`                     | The website (entry point served by GitHub Pages)            |
+| `assets/profile.jpg`             | Headshot: hero card + social share image                    |
 | `favicon.svg`                    | Browser tab icon — "IFO" monogram                           |
 | `.nojekyll`                      | Tells GitHub Pages to serve the files as-is, without Jekyll |
 | `Ikechukwu_Okeke_Portfolio.html` | Original uploaded copy of the page (kept for reference)     |
@@ -71,28 +72,17 @@ is defined once as CSS variables:
 
 Change a value there and the whole site updates.
 
-### Swapping the monogram for your photo
+### Your photo
 
-The hero currently shows an "IFO" monogram drawn as inline SVG. To use a real
-headshot instead:
+The hero card uses `assets/profile.jpg` — square, 400 × 400, about 19 KB — and
+the `.avatar` CSS rule crops it to a circle with a thin ring and glow. The same
+file is referenced by the Open Graph and Twitter image tags, so link previews
+show your face as well.
 
-1. Put the image in the repo, for example `assets/profile.jpg`. A square crop of
-   at least 400 × 400 px works best.
-2. In `index.html`, find the comment `<!-- Photo slot:` inside the hero and
-   replace the whole `<svg class="avatar">…</svg>` block with:
-
-   ```html
-   <img
-     class="avatar"
-     src="assets/profile.jpg"
-     alt="Ikechukwu Festus Okeke"
-     width="152"
-     height="152"
-   />
-   ```
-
-The `.avatar` rule already sets the circular crop, size and glow, so nothing else
-needs to change.
+To change it, either overwrite `assets/profile.jpg` with a new square image or
+point the `<img class="avatar">` in the hero at a different path. Keep it square
+and at least 400 × 400 px so it stays sharp on retina screens; re-save as a
+progressive JPEG (quality ~85) to keep the file small.
 
 ## Custom domain (optional)
 
